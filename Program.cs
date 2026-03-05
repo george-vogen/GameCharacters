@@ -107,6 +107,30 @@ do
             logger.Error("Invalid Id");
         }
     }
+    else if (choice == "4")
+    {
+        
+    }
+    else if (choice == "5")
+    {
+
+    }
+    else if (choice == "6")
+    {
+
+    }
+    else if (choice == "7")
+    {
+        
+    }
+    else if (choice == "8")
+    {
+        
+    }
+    else if (choice == "9")
+    {
+        
+    }
     else if (string.IsNullOrEmpty(choice))
     {
         break;
