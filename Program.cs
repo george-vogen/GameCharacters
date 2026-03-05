@@ -49,6 +49,12 @@ do
     Console.WriteLine("1) Display Mario Characters");
     Console.WriteLine("2) Add Mario Character");
     Console.WriteLine("3) Remove Mario Character");
+    Console.WriteLine("4) Display Donkey Kong Characters");
+    Console.WriteLine("5) Add Donkey Kong Character");
+    Console.WriteLine("6) Remove Donkey Kong Character");
+    Console.WriteLine("7) Display Street Fighter 2 Characters");
+    Console.WriteLine("8) Add Street Fighter 2 Character");
+    Console.WriteLine("9) Remove Street Fighter 2 Character");
     Console.WriteLine("Enter to quit");
 
     // input selection
@@ -110,7 +116,6 @@ do
         logger.Info("Invalid choice");
     }
 } while (true);
-
 
 logger.Info("Program ended");
 
