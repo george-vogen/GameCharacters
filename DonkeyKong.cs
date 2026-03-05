@@ -4,6 +4,6 @@ public class DonkeyKong : Character
 
     public override string Display()
     {
-        return $"Id: {Id}\nSpecies: {Species}\nName: {Name}\nDescription: {Description}";
+        return $"Id: {Id}\nSpecies: {Species}\nName: {Name}\nDescription: {Description}\n";
     }
 }

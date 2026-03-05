@@ -109,7 +109,11 @@ do
     }
     else if (choice == "4")
     {
-        
+        // Display Mario Characters
+        foreach (var c in donkeyKongs)
+        {
+            Console.WriteLine(c.Display());
+        }
     }
     else if (choice == "5")
     {
@@ -121,7 +125,11 @@ do
     }
     else if (choice == "7")
     {
-        
+        // Display Mario Characters
+        foreach (var c in streetFighters)
+        {
+            Console.WriteLine(c.Display());
+        }
     }
     else if (choice == "8")
     {
