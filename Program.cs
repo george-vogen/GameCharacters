@@ -9,27 +9,51 @@ var logger = LogManager.Setup().LoadConfigurationFromFile(path).GetCurrentClassL
 
 logger.Info("Program started");
 
+#region Deserialize Mario
 // deserialize mario json from file into List<Mario>
 string marioFileName = "mario.json";
 List<Mario> marios = [];
 // check if file exists
 if (File.Exists(marioFileName))
 {
-  marios = JsonSerializer.Deserialize<List<Mario>>(File.ReadAllText(marioFileName))!;
-  logger.Info($"File deserialized {marioFileName}");
+    marios = JsonSerializer.Deserialize<List<Mario>>(File.ReadAllText(marioFileName))!;
+    logger.Info($"File deserialized {marioFileName}");
 }
+#endregion
+#region Deserialize Donkey Kong
+// deserialize donkey kong json from file into List<DonkeyKong>
+string donkeyKongFileName = "dk.json";
+List<DonkeyKong> donkeyKongs = [];
+// check if file exists
+if (File.Exists(donkeyKongFileName))
+{
+    donkeyKongs = JsonSerializer.Deserialize<List<DonkeyKong>>(File.ReadAllText(donkeyKongFileName))!;
+    logger.Info($"File deserialized {donkeyKongFileName}");
+}
+#endregion
+#region Deserialize Street Fighter 2
+// deserialize street fighter 2 json from file into List<Sf2>
+string streetFighterFileName = "sf2.json";
+List<Sf2> streetFighters = [];
+// check if file exists
+if (File.Exists(streetFighterFileName))
+{
+    streetFighters = JsonSerializer.Deserialize<List<Sf2>>(File.ReadAllText(streetFighterFileName))!;
+    logger.Info($"File deserialized {streetFighterFileName}");
+}
+#endregion
 
 do
 {
-  // display choices to user
-  Console.WriteLine("1) Display Mario Characters");
-  Console.WriteLine("2) Add Mario Character");
-  Console.WriteLine("3) Remove Mario Character");
-  Console.WriteLine("Enter to quit");
+    // display choices to user
+    Console.WriteLine("1) Display Mario Characters");
+    Console.WriteLine("2) Add Mario Character");
+    Console.WriteLine("3) Remove Mario Character");
+    Console.WriteLine("Enter to quit");
 
-  // input selection
-  string? choice = Console.ReadLine();
-  logger.Info("User choice: {Choice}", choice);
+    // input selection
+    string? choice = Console.ReadLine();
+    logger.Info("User choice: {Choice}", choice);
 
     if (choice == "1")
     {
@@ -63,7 +87,9 @@ do
             if (character == null)
             {
                 logger.Error($"Character Id {Id} not found");
-            } else {
+            }
+            else
+            {
                 marios.Remove(character);
                 // serialize list<marioCharacter> into json file
                 File.WriteAllText(marioFileName, JsonSerializer.Serialize(marios));
