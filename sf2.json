@@ -68,13 +68,5 @@
     "Id": 8,
     "Name": "Dhalsim",
     "Description": "a fire-breathing yoga master from India"
-  },
-  {
-    "Moves": [
-      "Kick"
-    ],
-    "Id": 9,
-    "Name": "George",
-    "Description": "Fast Fighter"
   }
 ]
