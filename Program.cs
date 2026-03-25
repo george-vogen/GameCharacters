@@ -109,7 +109,7 @@ do
     }
     else if (choice == "4")
     {
-        // Display Mario Characters
+        // Display Donkey Kong Characters
         foreach (var c in donkeyKongs)
         {
             Console.WriteLine(c.Display());
@@ -117,7 +117,17 @@ do
     }
     else if (choice == "5")
     {
-
+        // Add Donkey Kong Character
+        // Generate unique Id
+        DonkeyKong donkeyKong = new()
+        {
+            Id = donkeyKongs.Count == 0 ? 1 : donkeyKongs.Max(c => c.Id) + 1
+        };
+        InputCharacter(donkeyKong);
+        // Add Character
+        donkeyKongs.Add(donkeyKong);
+        File.WriteAllText(donkeyKongFileName, JsonSerializer.Serialize(donkeyKongs));
+        logger.Info($"Character added: {donkeyKong.Name}");
     }
     else if (choice == "6")
     {
@@ -125,7 +135,7 @@ do
     }
     else if (choice == "7")
     {
-        // Display Mario Characters
+        // Display Street Fighter 2 Characters
         foreach (var c in streetFighters)
         {
             Console.WriteLine(c.Display());
