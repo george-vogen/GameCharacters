@@ -162,6 +162,29 @@ do
     else if (choice == "7")
     {
         // Edit Donkey Kong Character
+        Console.WriteLine("Enter the Id of the character to edit:");
+        if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+        {
+            DonkeyKong? character = donkeyKongs.FirstOrDefault(c => c.Id == Id);
+            if (character == null)
+            {
+                logger.Error($"Character Id {Id} not found");
+            }
+            else
+            {
+                donkeyKongs.Remove(character);
+                DonkeyKong donkeyKong = new() { Id = character.Id };
+                InputCharacter(donkeyKong);
+                donkeyKongs.Add(donkeyKong);
+                // serialize list<donkeyKongCharacter> into json file
+                File.WriteAllText(donkeyKongFileName, JsonSerializer.Serialize(donkeyKongs));
+                logger.Info($"Character Id {Id} edited");
+            }
+        }
+        else
+        {
+            logger.Error("Invalid Id");
+        }
     }
     else if (choice == "8")
     {
